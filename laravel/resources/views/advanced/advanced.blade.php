@@ -21,5 +21,26 @@
             @endif
         @endfor
     @endfor
+    @foreach ($errors->all() as $item)
+        <p>{{$item}}</p>
+    @endforeach
+    <form method="post" action="advanced/insert">
+        @csrf
+        <p>Captcha</p>
+        @for ($i = 0; $i < 7; $i++)
+            <div>
+                <input type="radio" value="{{$i}}" name="capId" id="" style="">
+                <label>{{$i}}</label>
+            </div>
+        @endfor
+        <p>Target</p>
+        @for ($i = 0; $i < 5; $i++)
+            <div>
+                <input type="radio" value="{{$i}}" name="tarId" id="" style="">
+                <label>{{$i}}</label>
+            </div>
+        @endfor
+        <button>Завершить</button>
+    </form>
 </body>
 </html>

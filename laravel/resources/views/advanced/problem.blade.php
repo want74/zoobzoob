@@ -7,7 +7,10 @@
     <title>Advanced Auth</title>
 </head>
 <body>
-    <form method="post" action="/advanced/insert">
+    @foreach ($errors->all() as $item)
+        <p>{{$item}}</p>
+    @endforeach
+    <form method="post" action="/advanced/problem/insert">
         @csrf
         <input type="" name="num" style="display: none" value="{{$num}}">
         <input type="checkbox" name="problem[]" value="01">01 <br/>

@@ -25,10 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::controller(MainController::class)->group(function(){
     Route::get('/advanced', 'advanced');
     Route::post('/advanced/problem', 'advanced_problem');
+    Route::post('/advanced/problem/insert', 'advanced_problem_insert');
     Route::post('/advanced/insert', 'advanced_insert');
-
-    Route::get('/captcha', 'captcha');
-    Route::post('/captcha/insert', 'captcha_insert')
-
-    
+    Route::get('/advanced/problem', 'advanced_problem');
+    Route::get('/advanced/problem/insert', 'advanced_problem_insert');
+    Route::get('/advanced/insert', 'advanced_insert');
 });
+

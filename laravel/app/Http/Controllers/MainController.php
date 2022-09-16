@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teeth;
+use App\Models\Advanced;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -31,8 +32,11 @@ class MainController extends Controller
             'num' => $request->num,
         ]);
     }
-
-    public function advanced_insert(Request $request){
+    
+    public function advanced_problem_insert(Request $request){
+        $valid = $request->validate([
+            'problem' => 'required',
+        ]);
         $problems = json_encode($request->problem);
         $tooth = new Teeth();
         $tooth->num = $request->num;
@@ -41,4 +45,19 @@ class MainController extends Controller
         $tooth->save();
         return redirect('/advanced');
     }
+
+    public function advanced_insert(Request $request){
+        $valid = $request->validate([
+            'capId' => 'required',
+            'tarId' => 'required',
+        ]);
+        $advanced = new Advanced();
+        $advanced->capId = $request->capId;
+        $advanced->tarId = $request->tarId;
+        $advanced->userId = Auth::user()->id;
+        $advanced->save();
+
+        return redirect('/home');
+    }
+
 }
