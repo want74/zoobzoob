@@ -1,8 +1,8 @@
 @extends('layouts/app')
 @section('content')
     @for ($i = 0; $i < 32; $i++)
-        <form method="post" action="/advanced/problem">
-            @csrf
+        <form method="get" action="/advanced/problem">
+            
             <input type="" name="num" style="display: none" value="{{$i}}">
             <button>{{$i}}</button>
         </form>

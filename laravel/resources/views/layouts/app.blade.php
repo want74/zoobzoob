@@ -49,8 +49,9 @@
                                 </li>
                             @endif
                         @else
-                            <a href="/appointment">Appointment</a>
-                            <a href="/home">Home</a>
+                            <a href="/challenges">Challenges_</a>
+                            <a href="/appointment">Appointment_</a>
+                            <a href="/home">Home_</a>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -63,8 +64,8 @@
                                         {{ __('Logout') }}
                                     </a>
                                     
-                                    <a href="/entries">Profile</a>
-                                    <a href="/advanced">AdvancedAuth</a>
+                                    <a href="/entries">Profile_</a>
+                                    <a href="/advanced">AdvancedAuth_</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
