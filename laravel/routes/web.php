@@ -42,3 +42,10 @@ Route::controller(AppointmentController::class)->group(function(){
 
 });
 
+Route::controller(MainController::class)->group(function(){
+    Route::get('/entries', 'entries');
+});
+
+Route::controller(ChallengeController::class)->group(function(){
+    Route::get('/challenges', 'main');
+});

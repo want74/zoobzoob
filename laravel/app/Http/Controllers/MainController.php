@@ -11,9 +11,14 @@ use Illuminate\Support\Facades\View;
 
 class MainController extends Controller
 {
-    public function appointment()
+    public function entries()
     {
-        return view('appintment');
+        $entries = DB::table('entries')
+            ->where('userId', Auth::user()->id)
+            ->get();
+        return view('entries', [
+            'entries' => $entries,
+        ]);
     }
     
 
