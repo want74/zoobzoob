@@ -65,7 +65,6 @@
                                     </a>
                                     
                                     <a href="/entries">Profile_</a>
-                                    <a href="/advanced">AdvancedAuth_</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

@@ -1,5 +1,4 @@
-@extends('layouts/app')
-@section('content')
+
     @for ($i = 0; $i < 32; $i++)
         <form method="get" action="/advanced/problem">
             
@@ -35,5 +34,5 @@
             </div>
         <button>Завершить</button>
     </form>
-@endsection
+
     
