@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+</head>
+
+<body>
+    <nav class="bg-white border-gray-200 py-2.5 rounded sticky top-0">
+        <div class="flex flex-wrap justify-between items-center mx-auto">
+            <div class="w-[264px] flex">
+                <a href="#" class="flex items-center mx-auto">
+                    <span class="self-center text-3xl font-bold whitespace-nowrap text-[#323855]">Zoob Zoob</span>
+                </a>
+            </div>
+            <div class="flex items-center md:order-2 mr-2">
+                <img class="w-4 h-4 mx-[22px]" src="img/bell.svg" alt="bell" />
+
+                <img class="w-4 h-4 mx-[22px]" src="img/components.svg" alt="components" />
+                <button type="button mx-[22px]"
+                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
+                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-[44px] h-[44px] rounded-full"
+                        src="https://i.pinimg.com/736x/0f/05/6b/0f056bda7800280375fc274c5464ff31.jpg"
+                        alt="user photo" />
+                </button>
+                <!-- Dropdown menu -->
+                <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
+                    id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped=""
+                    data-popper-placement="bottom" style="
+              position: absolute;
+              inset: 0px auto auto 0px;
+              margin: 0px;
+              transform: translate(0px, 210px);
+            ">
+                    <div class="py-3 px-4">
+                        <span class="block text-sm text-gray-900">Bonnie Green</span>
+                        <span class="block text-sm font-medium text-gray-500 truncate">name@flowbite.com</span>
+                    </div>
+                    <ul class="py-1" aria-labelledby="user-menu-button">
+                        <li>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Earnings</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- SideBar -->
+        <div class="w-[264px] h-[calc(100vh-4rem)] bg-[white] sticky left-0 top-[64px]">
+            <div class="w-11/12 mx-auto my-2 text-[#64748B]">
+                <span class="text-xl flex bg-indigo-100 rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+                <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+                <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+                <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+                <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+                <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                        class="mr-4">Главная</span>
+            </div>
+
+            <div class="w-full flex absolute bottom-0 text-[#64748B]">
+                <div class="mx-auto w-11/12">
+                    <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                            class="mr-4">Русский</span>
+                    <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                            class="mr-4">Настройки</span>
+                    <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3"> <img src="img/bell.svg"
+                            class="mr-4">Выйти</span>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class=" bg-[#EEF2FF] w-full flex overflow-y-auto">
+            <div class="mx-auto w-[98%] my-3 ">
+                <div class="flex mt-[30px]">
+                <h1 class="text-3xl font-bold text-[#323855]">Профиль</h1>
+                <h1 class="text-3xl font-bold text-[#323855] ml-[230px]">Подписка</h1>
+                <h1 class="text-3xl font-bold text-[#323855] ml-[230px]">О нас</h1>
+                </div>
+
+                <div class="flex my-3">
+                    <div class="grid grid-cols-3 gap-3 w-full">
+                        <div class="bg-white rounded-[12px] px-[34px] py-[27px] w-[350px]">
+                            <div class=" border-b-2 border-indigo-100 border-solid py-1">
+                                <div class="bg-gradient-to-r from-[#07E2C2] to-[#6268F0] w-[351px] h-[100px] relative ml-[-35px] mt-[-30px] rounded-[12px] flex">
+                                    <p class="font-bold text-white ml-[230px] my-auto">Редактировать</p>
+                                </div>
+                                <div class="ml-[-10px]">
+                                    <img src="img/avatar.svg" class="relative mt-[-35px]">
+                                    <p class="font-bold  text-lg">Имя пользователя</p>
+                                    <p class="font-semibold text-slate-500 text-sm">Семенова Августина</p>
+                                    <p class="font-semibold text-slate-500 text-lg">Адрес: Ойунского, 6/1</p>
+                                </div>
+                                
+                            </div>
+                            <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                                <div class="ml-[-10px]">
+                                    <p class="font-bold text-slate-500 text-lg">Телефон:</p>
+                                    <p class="font-semibold text-slate-500 text-base">8 914 277 40 56</p>
+                                    <p class="font-bold text-slate-500 text-lg">Город:</p>
+                                    <p class="font-semibold text-slate-500 text-base">Якутск</p>
+                                    <p class="font-bold text-slate-500 text-lg">Электронная почта:</p>
+                                    <p class="font-semibold text-slate-500 text-base">aqua@mail.ru</p>
+                                    <p class="font-bold text-slate-500 text-lg">Подписка:</p>
+                                    <p class="font-semibold text-slate-500 text-base">Отключен</p>
+                                    <p class="font-bold text-slate-500 text-lg">Язык:</p>
+                                    <p class="font-semibold text-slate-500 text-base">Русский</p>
+                                </div>
+                            </div>
+                            <p class="font-bold text-right">Выйти</p>
+                        </div>
+                        <div>
+                        <div class="bg-white rounded-[12px] px-[30px] py-[27px] w-[350px] ">
+                            <h1 class="text-xl text-slate-500 font-semibold mb-5">Подключите подписку и вам будет предоставлены больше возможностей!</h1>
+                            <h1 class="text-xl text-slate-500 font-semibold mb-5">Будут открыты больше челленджей, подборка полезных гайдов и много интересного. Присоединяйтесь!</h1>
+                            <img src="img/woman.svg" class="ml-auto">
+                        </div>
+
+                            
+
+                            
+                        </div>
+
+                        <div class="bg-white rounded-[12px] px-[34px] py-[27px] flex ">
+                            <div class="w-1/2">
+                                <h1 class="text-xl text-slate-500 font-semibold mb-5">ZoobZoob </h1>
+                                <p class="text-xl text-slate-500 font-semibold mb-5">
+                                    предостовляет необходимую информацию про поддержание и улучшение состояния полости рта с помощью веб платформы.
+                                </p>
+                            </div>
+                            <div class="w-1/2 bg-[url('./img/para.svg')] h-full bg-no-repeat bg-right"></div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+</body>
+
+</html>
