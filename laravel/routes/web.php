@@ -18,7 +18,7 @@ use App\Http\Controllers\AppointmentController;
 */
 
 Route::get('/', function () {
-    return to_route('/home');
+    return redirect('/home');
 });
 
 Auth::routes();
