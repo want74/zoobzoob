@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('userId');
             $table->integer('capId');
-            $table->integer('tarId');
+            $table->string('target');
         });
     }
 

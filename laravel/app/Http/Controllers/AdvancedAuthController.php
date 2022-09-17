@@ -48,11 +48,11 @@ class AdvancedAuthController extends Controller
     public function insert(Request $request){
         $valid = $request->validate([
             'capId' => 'required',
-            'tarId' => 'required',
+            'target' => 'required',
         ]);
         $advanced = new Advanced();
         $advanced->capId = $request->capId;
-        $advanced->tarId = $request->tarId;
+        $advanced->target = $request->target;
         $advanced->userId = Auth::user()->id;
         $advanced->save();
 
