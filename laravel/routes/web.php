@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdvancedAuthController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +25,20 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::controller(MainController::class)->group(function(){
-    Route::get('/advanced', 'advanced');
-    Route::post('/advanced/problem', 'advanced_problem');
-    Route::post('/advanced/problem/insert', 'advanced_problem_insert');
-    Route::post('/advanced/insert', 'advanced_insert');
-    Route::get('/advanced/problem', 'advanced_problem');
-    Route::get('/advanced/problem/insert', 'advanced_problem_insert');
-    Route::get('/advanced/insert', 'advanced_insert');
+Route::controller(AdvancedAuthController::class)->group(function(){
+    Route::get('/advanced', 'main');
+    Route::post('/advanced/problem', 'problem');
+    Route::post('/advanced/problem/insert', 'problem_insert');
+    Route::post('/advanced/insert', 'insert');
+    Route::get('/advanced/problem', 'problem');
+    Route::get('/advanced/problem/insert', 'problem_insert');
+    Route::get('/advanced/insert', 'insert');
+});
+
+Route::controller(AppointmentController::class)->group(function(){
+    Route::get('/appointment', 'main');
+    Route::get('/appointment/insert', 'insert');
+    Route::post('/appointment/insert', 'insert');
+
 });
 
