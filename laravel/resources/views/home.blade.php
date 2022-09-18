@@ -1,7 +1,185 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<div class="h-[calc(100vh-4rem)] bg-[#EEF2FF] w-full flex">
+    <div class="mx-auto w-[98%] my-3">
+        <h1 class="text-3xl font-bold text-[#323855]">Ваши записи и стоматологии</h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-3 gap-3 w-full">
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px]">
+                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                        <div class="w-1/2">
+                            <p class="font-semibold text-slate-500 text-lg">17 Сентября</p>
+                            <p class="font-semibold text-slate-500 text-lg">Время: 07:15 Часов</p>
+                            <p class="font-semibold text-slate-500 text-lg">Адрес: Ойунского, 6/1</p>
+                        </div>
+                        <div class="w-1/2 flex">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Контрольное посещение на
+                                осмотр брекетов</p>
+                        </div>
+                    </div>
+                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                        <div class="w-1/2">
+                            <p class="font-semibold text-slate-500 text-lg">17 Сентября</p>
+                            <p class="font-semibold text-slate-500 text-lg">Время: 07:15 Часов</p>
+                            <p class="font-semibold text-slate-500 text-lg">Адрес: Ойунского, 6/1</p>
+                        </div>
+                        <div class="w-1/2 flex">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Контрольное посещение на
+                                осмотр брекетов</p>
+                        </div>
+                    </div>
+                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                        <div class="w-1/2">
+                            <p class="font-semibold text-slate-500 text-lg">17 Сентября</p>
+                            <p class="font-semibold text-slate-500 text-lg">Время: 07:15 Часов</p>
+                            <p class="font-semibold text-slate-500 text-lg">Адрес: Ойунского, 6/1</p>
+                        </div>
+                        <div class="w-1/2 flex">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Контрольное посещение на
+                                осмотр брекетов</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px]">
+                    <h1 class="text-xl text-slate-500 font-semibold mb-5">Стоматологи для вас...</h1>
+
+                    <span class="flex my-5">
+                        <div class="w-1/4">
+                            <img src="https://i.pinimg.com/736x/0f/05/6b/0f056bda7800280375fc274c5464ff31.jpg"
+                                class="rounded-full w-[50px] h-[50px] mx-auto">
+                        </div>
+                        <div class="w-full">
+                            <p class="text-indigo-500 text-lg font-semibold">Виват</p>
+                            <p class="text-[#ABADC6] text-base font-medium">Ойунского 6/1</p>
+                        </div>
+                    </span>
+                    <span class="flex my-5">
+                        <div class="w-1/4">
+                            <img src="https://i.pinimg.com/736x/0f/05/6b/0f056bda7800280375fc274c5464ff31.jpg"
+                                class="rounded-full w-[50px] h-[50px] mx-auto">
+                        </div>
+                        <div class="w-full">
+                            <p class="text-indigo-500 text-lg font-semibold">Виват</p>
+                            <p class="text-[#ABADC6] text-base font-medium">Ойунского 6/1</p>
+                        </div>
+                    </span>
+                    <span class="flex my-5">
+                        <div class="w-1/4">
+                            <img src="https://i.pinimg.com/736x/0f/05/6b/0f056bda7800280375fc274c5464ff31.jpg"
+                                class="rounded-full w-[50px] h-[50px] mx-auto">
+                        </div>
+                        <div class="w-full">
+                            <p class="text-indigo-500 text-lg font-semibold">Виват</p>
+                            <p class="text-[#ABADC6] text-base font-medium">Ойунского 6/1</p>
+                        </div>
+                    </span>
+
+                    <div class="flex w-full">
+                        <a href="#" class="mx-auto text-xl text-slate-500 font-semibold"> Смотреть всё</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] flex">
+                    <div class="w-1/2">
+                        <h1 class="text-xl text-slate-500 font-semibold mb-5">ZoobZoob </h1>
+                        <p class="text-xl text-slate-500 font-semibold mb-5">
+                            предостовляет необходимую информацию про поддержание и улучшение состояния полости рта с помощью веб платформы.
+                        </p>
+                    </div>
+                    <div class="w-1/2 bg-[url('./img/para.svg')] h-full bg-no-repeat bg-right"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <h1 class="text-3xl font-bold text-[#323855]">Наши гайды</h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-3 gap-3 w-full">
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">
+                        <div class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Какие зубные щетки лучше? </p>
+                            <div class="flex h-[90%]">
+                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto">
+                            </div>                                    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">
+                        <div class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Какие зубные щетки лучше? </p>
+                            <div class="flex h-[90%]">
+                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto">
+                            </div>                                    
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">
+                        <div class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Какие зубные щетки лучше? </p>
+                            <div class="flex h-[90%]">
+                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto">
+                            </div>                                    
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h1 class="text-3xl font-bold text-[#323855]">Копи очки для бонусов!</h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-3 gap-3 w-full">
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">                                
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Марафон чистки зубов</p>                        
+                        </div>
+
+                        <div class="w-1/6 bg-[url('./img/yellow%20star.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">                                
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Марафон чистки зубов</p>                        
+                        </div>
+
+                        <div class="w-1/6 bg-[url('./img/yellow%20star.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-[216px]">
+                    <div class="flex h-full">                                
+                        <div class="w-full">
+                            <p class="my-auto font-semibold text-slate-500 text-lg">Марафон чистки зубов</p>                        
+                        </div>
+
+                        <div class="w-1/6 bg-[url('./img/yellow%20star.svg')] h-full bg-no-repeat bg-left">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
+    <!--<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -190,4 +368,5 @@
             @endforeach
         });
     </script>
+-->
 @endsection
