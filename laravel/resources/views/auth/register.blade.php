@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<a href="{{route('login')}}">Назад</a>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,12 +24,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="age" class="col-md-4 col-form-label text-md-end">{{ __('Age') }}</label>
+                            <label for="date" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
+                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
 
-                                @error('age')
+                                @error('date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -102,4 +100,3 @@
         </div>
     </div>
 </div>
-@endsection

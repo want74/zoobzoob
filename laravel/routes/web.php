@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdvancedAuthController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ChallengeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,13 @@ use App\Http\Controllers\AppointmentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::view('/','welcome');
+
 Auth::routes();
+
 Route::name('/home')->group(function (){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('/home','home')->name('home')->middleware('auth');
     Route::get('/home', [\App\Http\Controllers\GuideController::class,'getData'])->middleware('auth');
 });
@@ -31,12 +36,12 @@ Route::post('/editRecord', [\App\Http\Controllers\recordController::class, 'edit
 Route::get('/deleteRecord', [\App\Http\Controllers\recordController::class, 'deleteRecord'])->name('deleteRecord');
 Route::post('/endRecord', [\App\Http\Controllers\recordController::class, 'endRecord'])->name('endRecord');
 Route::controller(AdvancedAuthController::class)->group(function(){
-    Route::get('/advanced', 'main')->name('advanced');
+    Route::get('/advanced', 'main');
     Route::post('/advanced/problem', 'problem');
-    Route::post('/advanced/problem/insert', 'problem_insert');
-    Route::post('/advanced/insert', 'insert');
     Route::get('/advanced/problem', 'problem');
+    Route::post('/advanced/problem/insert', 'problem_insert');
     Route::get('/advanced/problem/insert', 'problem_insert');
+    Route::post('/advanced/insert', 'insert');
     Route::get('/advanced/insert', 'insert');
 });
 
@@ -48,9 +53,11 @@ Route::controller(AppointmentController::class)->group(function(){
 });
 
 Route::controller(MainController::class)->group(function(){
-    Route::get('/entries', 'entries')->name('entries');
+    Route::get('/entries', 'entries');
 });
 
 Route::controller(ChallengeController::class)->group(function(){
     Route::get('/challenges', 'main');
+    Route::get('/challenges/update', 'update');
+    Route::post('/challenges/update', 'update');
 });

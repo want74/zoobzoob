@@ -21,12 +21,13 @@ return new class extends Migration
             $table->string('language')->nullable();
             $table->integer('role')->nullable();
             $table->string('email')->unique();
+            $table->string('date');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone');
-            $table->integer('age');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('advanced')->default(false);
         });
     }
 

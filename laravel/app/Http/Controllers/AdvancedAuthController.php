@@ -56,6 +56,11 @@ class AdvancedAuthController extends Controller
         $advanced->userId = Auth::user()->id;
         $advanced->save();
 
+        DB::table('users')
+            ->where('id', Auth::user()->id)
+            ->update([
+                'advanced' => true,
+            ]);
         return redirect('/home');
     }
 }

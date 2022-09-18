@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('time');
             $table->string('email');
             $table->string('phone');
-            $table->string('age');
-            $table->integer('userid');
             $table->string('date');
+            $table->integer('userid');
+            $table->string('datetime');
             $table->string('address');
             $table->string('doctor');
             $table->timestamps();

@@ -7,7 +7,6 @@
     "require": {
         "php": "^8.0.2",
         "babenkoivan/telegram-notifications": "^1.1",
-        "defstudio/telegraph": "^1.19",
         "guzzlehttp/guzzle": "^7.2",
         "laravel-notification-channels/telegram": "^2.1",
         "laravel/framework": "^9.19",

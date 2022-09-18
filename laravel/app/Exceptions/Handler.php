@@ -2,8 +2,6 @@
 
 namespace App\Exceptions;
 
-use App\Helpers\Telegram;
-use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 

@@ -23,6 +23,9 @@ class GuideController extends Controller
         return back();
     }
     public function getData(){
+        if(!Auth::user()->advanced){
+            return redirect('/advanced');
+        }
         $results = DB::select('select * from guides');
         $userData = DB::select('select * from users where id = '.Auth::user()->id);
         $records = DB::select('select * from records where userid = '.Auth::user()->id);
