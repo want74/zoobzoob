@@ -11,54 +11,49 @@
                 <!-- Записи -->
                 <div class="bg-white rounded-[12px] px-[34px] py-[27px] overflow-y-auto h-[350px]">
                     <!-- Начало блоков записей -->
+                    @foreach($records as $recordid)
+                    @if($recordid->status == 'Ожидаем ответа от агента')
                     <div class="flex border-b-2 border-indigo-100 border-solid py-1">
                         <div class="w-full">
                             <p class="font-semibold text-slate-500 text-xl mb-3">
-                                17 Сентября
+                                Ожидается
+                            </p>
+                            <p class="font-semibold text-slate-500 text-xl mb-3">
+                                Врач: Ожидается
                             </p>
                             <p class="font-base text-slate-500 text-lg">
-                                Время: 07:15 Часов
+                                Время: Ожидается
                             </p>
                             <p class="font-base text-slate-500 text-lg">
-                                Адрес: Ойунского, 6/1
+                                Адрес: Ожидается
                             </p>
                             <p class="font-base text-slate-500 text-lg">
                                 Причина: Осмотр у ортодонта
                             </p>
                         </div>
                     </div>
+                    @else
                     <div class="flex border-b-2 border-indigo-100 border-solid py-1">
                         <div class="w-full">
                             <p class="font-semibold text-slate-500 text-xl mb-3">
-                                17 Сентября
+                                {{$recordid->date}}
                             </p>
                             <p class="font-base text-slate-500 text-lg">
-                                Время: 07:15 Часов
+                                Врач: {{$recordid->doctor}}
                             </p>
                             <p class="font-base text-slate-500 text-lg">
-                                Адрес: Ойунского, 6/1
+                                Время: {{$recordid->time}}
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Адрес: {{$recordid->address}}
                             </p>
                             <p class="font-base text-slate-500 text-lg">
                                 Причина: Осмотр у ортодонта
                             </p>
                         </div>
                     </div>
-                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
-                        <div class="w-full">
-                            <p class="font-semibold text-slate-500 text-xl mb-3">
-                                17 Сентября
-                            </p>
-                            <p class="font-base text-slate-500 text-lg">
-                                Время: 07:15 Часов
-                            </p>
-                            <p class="font-base text-slate-500 text-lg">
-                                Адрес: Ойунского, 6/1
-                            </p>
-                            <p class="font-base text-slate-500 text-lg">
-                                Причина: Осмотр у ортодонта
-                            </p>
-                        </div>
-                    </div>
+                    @endif
+                    @endforeach
                 </div>
                 <!-- О нас -->
                 <div class="bg-white rounded-[12px] px-[34px] py-[27px] flex col-span-2 bg-[url('img/bgAbout.svg')] bg-cover">
@@ -75,246 +70,67 @@
                 </div>
             </div>
         </div>
-
+        
         <h1 class="text-3xl font-bold text-[#323855]">Наши гайды</h1>
         <div class="flex my-3">
             <div class="grid grid-cols-4 gap-3 w-full">
-                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-auto bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
-                    <div class="flex h-full">
-                        <div class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-contain bg-left"></div>
-                        <div class="w-full">
-                            <p class="my-auto font-semibold text-slate-500 text-xl">
-                                Какие зубные щетки лучше?
-                            </p>
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3">
-                                Мы расскажем какие зубные щетки лучше всего подойдут и в каких ситуаиях.
-                            </p>
-                            <div class="flex sticky top-full">
-                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
+                @foreach($results as $result)
+                    <a href="{{route('guidelink',['id'=>$result->id])}}">
+                        <div
+                            class="bg-white rounded-[12px] px-[34px] py-[27px] h-[250px] bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
+                            <div class="flex h-full">
+                                <div
+                                    class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-contain bg-left">
+                                </div>
+                                <div class="w-full">
+                                    <p class="my-auto font-semibold text-slate-500 text-xl">
+                                        {{$result->name}}
+                                    </p>
+                                    <p class="my-auto font-base text-slate-500 text-lg mt-3">
+                                        {{$result->description}}
+                                    </p>
+                                    <div class="flex sticky top-full">
+                                        <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-auto bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
-                    <div class="flex h-full">
-                        <div class="w-1/3 bg-[url('./img/water.svg')] h-full bg-no-repeat bg-contain bg-left"></div>
-                        <div class="w-full">
-                            <p class="my-auto font-semibold text-slate-500 text-xl">
-                                Как правильно мыть зубы?
-                            </p>
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3">
-                                Мы расскажем как правильно пользоваться различными средствами для ухода ваших зубов.
-                            </p>
-                            <div class="flex sticky top-full">
-                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-auto bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
-                    <div class="flex h-full">
-                        <div class="w-1/3 bg-[url('./img/woman.svg')] h-full bg-no-repeat bg-contain bg-left"></div>
-                        <div class="w-full">
-                            <p class="my-auto font-semibold text-slate-500 text-xl">
-                                Как вы ухаживаете за герпесом?
-                            </p>
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3">
-                                Мы расскажем что такое герпес, как лечить его в домашних условиях, а так же что нельзя делать при герпесе.
-                            </p>
-                            <div class="flex sticky top-full">
-                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] px-[34px] py-[27px] h-auto bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
-                    <div class="flex h-full">
-                        <div class="w-1/3 bg-[url('./img/young.svg')] h-full bg-no-repeat bg-contain bg-left"></div>
-                        <div class="w-full">
-                            <p class="my-auto font-semibold text-slate-500 text-xl">
-                                Почему мы боимся стоматолога?
-                            </p>
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3">
-                                Мы расскажем почему возникает страх перед стоматологией и как бороться страхом.
-                            </p>
-                            <div class="flex sticky top-full">
-                                <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+                        </form>
+                    @endforeach
+                
             </div>
         </div>
 
         <h1 class="text-3xl font-bold text-[#323855]">
-            Копи очки для бонусов!
+            Копи очки для бонусов, выполняя челленджи!
         </h1>
         <div class="flex my-3">
             <div class="grid grid-cols-4 gap-3 w-full">
+                @foreach($challenges as $challenge)
                 <div class="bg-white rounded-[12px] h-[120px]">
                     <div class="flex h-full">
                         <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
+                            <img src="{{asset('img/zalupa.svg')}}" class="h-1/2 w-1/2 m-auto">
                         </div>
 
                         <div class="w-auto box-border p-3 ml-auto">
                             <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
+                                {{$challenge->name}}
                             </p>
                             
                             <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
+                                {{$challenge->description}} 
                             </p>
                             
                             <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
+                                <!--<img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />-->
+                                <p class="text-indigo-500 font-semibold text-xl my-auto ml-auto">{{$cntDoneChallenge[$challenge->id]}}/{{$cntChallenge[$challenge->id]}}</p>
                             </div>
                         </div>                               
                     </div>
                 </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[12px] h-[120px]">
-                    <div class="flex h-full">
-                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
-                            <img src="img/zalupa.svg" class="h-1/2 w-1/2 m-auto">
-                        </div>
-
-                        <div class="w-auto box-border p-3 ml-auto">
-                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
-                                Марафон чистки зубов
-                            </p>
-                            
-                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                Сформирование хороших привычек 
-                            </p>
-                            
-                            <div class="flex sticky top-full">
-                                <img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />
-                                <p class="text-indigo-500 font-semibold text-xl my-auto">25 Очков</p>
-                            </div>
-                        </div>                               
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </div>

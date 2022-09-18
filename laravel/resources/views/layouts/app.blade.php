@@ -15,6 +15,11 @@
             font-size: inherit;
         }
     </style>
+    
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 </head>
 
@@ -23,13 +28,13 @@
         <div class="flex flex-wrap justify-between items-center mx-auto">
             <div class="w-[264px] flex">
                 <a href="#" class="flex items-center mx-auto">
-                    <img src="img/LogoFull.svg" class="w-full">
+                    <img src="{{asset('img/LogoFull.svg')}}" class="w-full">
                 </a>
             </div>
             <div class="flex items-center md:order-2 mr-2">
-                <img class="w-4 h-4 mx-[22px]" src="img/bell.svg" alt="bell" />
+                <img class="w-4 h-4 mx-[22px]" src="{{asset('img/bell.svg')}}" alt="bell" />
 
-                <img class="w-4 h-4 mx-[22px]" src="img/components.svg" alt="components" />
+                <img class="w-4 h-4 mx-[22px]" src="{{asset('img/components.svg')}}" alt="components" />
                 <button type="button mx-[22px]"
                     class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
@@ -54,7 +59,7 @@
                     </div>
                     <ul class="py-1" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="#"
+                            <a href="/userPage"
                                 class="block py-2 px-4 text-sm font-semibold text-indigo-400 hover:bg-gray-100">
                                 Личный кабинет</a>
                         </li>
@@ -79,26 +84,26 @@
         <div class="w-[264px] h-[calc(100vh-4rem)] bg-[white] sticky left-0 top-[64px]">
             <div class="w-11/12 mx-auto my-2 text-[#64748B]">
                 <a href="/home" class="mb-3">
-                    <span class="text-xl flex rounded-[12px] py-3 px-4">
-                        <img src="img/bell.svg" class="mr-4" />
+                    <span class="@if(request()->segment(1) == 'home')bg-indigo-100 @endif text-xl flex rounded-[12px] py-3 px-4">
+                        <img src="{{asset('img/home.svg')}}" class="mr-4" />
                         Главная
                     </span>
                 </a>
                 <a href="/challenges" class="mb-3">
-                    <span class="text-xl flex rounded-[12px] py-3 px-4">
-                        <img src="img/bell.svg" class="mr-4" />
+                    <span class="@if(request()->segment(1) == 'challenges')bg-indigo-100 @endif text-xl flex rounded-[12px] py-3 px-4">
+                        <img src="{{asset('img/comp.svg')}}" class="mr-4" />
                         Челленджи
                     </span>
                 </a>
-                <a href="/home" class="mb-3">
-                    <span class="text-xl flex rounded-[12px] py-3 px-4">
-                        <img src="img/bell.svg" class="mr-4" />
+                <a href="/records" class="mb-3">
+                    <span class="@if(request()->segment(1) == 'records')bg-indigo-100 @endif text-xl flex rounded-[12px] py-3 px-4">
+                        <img src="{{asset('img/record.svg')}}" class="mr-4" />
                         Записи
                     </span>
                 </a>
                 <a href="/guides" class="mb-3">
-                    <span class="text-xl flex rounded-[12px] py-3 px-4">
-                        <img src="img/bell.svg" class="mr-4" />
+                    <span class="@if(request()->segment(1) == 'guides')bg-indigo-100 @endif text-xl flex rounded-[12px] py-3 px-4">
+                        <img src="{{asset('img/play-circle.svg')}}" class="mr-4" />
                         Гайды
                     </span>
                 </a>
@@ -107,11 +112,11 @@
             <div class="w-full flex absolute bottom-0 text-[#64748B]">
                 <div class="mx-auto w-11/12">
                     <!--<span class="text-xl flex rounded-[12px] py-3 px-4 mb-3">
-                        <img src="img/bell.svg" class="mr-4" />Русский</span>
+                        <img src="{{asset('img/bell.svg')}}" class="mr-4" />Русский</span>
                     <span class="text-xl flex rounded-[12px] py-3 px-4 mb-3">
-                        <img src="img/bell.svg" class="mr-4" />Настройки</span>-->
+                        <img src="{{asset('img/bell.svg')}}" class="mr-4" />Настройки</span>-->
                         <form method="post" action="{{route('logout')}}"><button class="btn-link"><span class="text-xl flex rounded-[12px] py-3 px-4 mb-3 btn-">@csrf
-                            <img src="img/bell.svg" class="mr-4" />Выйти</span>
+                            <img src="{{asset('img/logout.svg')}}" class="mr-4" />Выйти</span>
                         </a></form>
                 </div>
             </div>

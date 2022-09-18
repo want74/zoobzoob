@@ -66,7 +66,7 @@
         </div>
 
         <h1 class="text-3xl font-bold text-[#323855]">
-            Копи очки для бонусов!
+            Задания
         </h1>
         <div class="flex my-3">
             <div class="grid grid-cols-3 gap-3 w-full">
