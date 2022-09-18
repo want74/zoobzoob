@@ -4,15 +4,14 @@
     <div class=" bg-[#EEF2FF] w-full flex overflow-y-auto">
         <div class="mx-auto w-[98%] my-3 ">
             <div class="flex mt-[30px]">
-
-                <h1 class="text-3xl font-bold text-[#323855] ml-[230px]">Мои записи</h1>
-                <h1 class="text-3xl font-bold text-[#323855] ml-[190px]">Баллы</h1>
+                <h1 class="text-3xl font-bold text-[#323855] ml-[5vw]">Профиль</h1>
+                <h1 class="text-3xl font-bold text-[#323855] ml-[20vw]">Мои записи</h1>
+                <h1 class="text-3xl font-bold text-[#323855] ml-[20vw]">Баллы</h1>
             </div>
 
             <div class="flex my-3">
                 <div class="grid grid-cols-3 gap-3 w-full">
                     <div class="bg-white rounded-[12px] px-[34px] py-[27px]  h-[600px]">
-                        <h1 class="text-3xl font-bold text-[#323855]">Профиль</h1>
                         @foreach($userData as $user)
                             <form action="{{route('editUser')}}" method="POST">
                                 @csrf
@@ -47,10 +46,44 @@
                             </form>
                         @endforeach
                     </div>
-                    <div>
+                    <div class="">
                         @foreach($records as $recordid)
                             @if($recordid->status == 'true')
+                                <div class="bg-white rounded-[12px] h-[250px] mb-4">
+                                    <div class="flex h-full">
+                                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
+                                            <img src="img/eye.svg" class="h-1/3 w-1/2 m-auto" />
+                                        </div>
 
+                                        <div class="w-[calc(100%-120px)] box-border p-3">
+                                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
+                                                {{$recordid->date}}
+                                            </p>
+
+                                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
+                                                Время: {{$recordid->time}}
+                                            </p>
+
+                                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
+                                                Врач: {{$recordid->doctor}}
+                                            </p>
+
+                                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
+                                                Адрес: {{$recordid->address}}
+                                            </p>
+
+                                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
+                                                Причина: Осмотр у ортодонта
+                                            </p>
+
+                                            <div class="flex sticky top-full">
+                                                <p class="text-indigo-500 font-semibold text-xl my-auto ml-auto w-max">
+                                                    Агент рассматривает
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endif
                             @if($recordid->status == 'Ожидаем ответа от агента')
                                     <div class="bg-white rounded-[12px] h-[250px] mb-4">
@@ -88,13 +121,12 @@
                                             </div>
                                         </div>
                                     </div>
-                    </div>
                             @endif
                             @if($recordid->status == 'ended')
 
                             @endif
                         @endforeach
-
+                    </div>
                     <div class="bg-white rounded-[12px] px-[34px] py-[27px] flex h-[300px] bg-[url('../img/bgBal.svg')] bg-cover bg-no-repeat">
                         <div class="w-1/2">
                             <h1 class="text-base text-slate-500 font-semibold mb-5 text-[#3F51B5]">Всего: 15 очков
