@@ -34,6 +34,10 @@ Route::name('/records')->group(function(){
     Route::view('/records', 'records')->name('records');
     Route::get('/records', [\App\Http\Controllers\GuideController::class,'getRecordData']);
 });
+Route::name('/userPage')->group(function(){
+    Route::view('/userPage', 'userPage')->name('userPage');
+    Route::get('/userPage', [\App\Http\Controllers\GuideController::class,'getUserData']);
+});
 Route::get('/guides/id', [\App\Http\Controllers\guidesController::class,'getDataGuide'])->name('guidelink');
 Route::view('/guide', 'guide')->name('guide');
 Route::post('/editUser', [\App\Http\Controllers\userController::class, 'editUser'])->name('editUser');

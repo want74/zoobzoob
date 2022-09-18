@@ -13,7 +13,7 @@
     <div class="bg-[url('../img/bgAuth.svg')] w-2/3 h-screen">
         <div class="flex h-full w-full">
             <div class="m-auto">
-                <img src="img/logo.svg" class="mx-auto" />
+                <img src="img/LogoFull.svg" class="mx-auto" />
                 <p class="font-bold text-xl mt-[40px]">Регистрация аккаунта</p>
                 <p class="font-semibold text-sm">
                     Для успешной регистрации заполните следуещее...

@@ -13,7 +13,7 @@
                         <div class="bg-[url('../img/bgAuth.svg')] w-2/3 h-screen">
                             <div class="flex h-full w-full">
                                 <div class="m-auto">
-                                    <img src="img/logo.svg" class="mx-auto" />
+                                    <img src="img/LogoFull.svg" class="mx-auto" />
                                     <p class="font-bold text-xl  mt-[40px]">Вход в аккаунт</p>
                                     <p class="font-semibold text-sm">
                                         Для успешного входа заполните следующее...
