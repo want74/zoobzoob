@@ -69,8 +69,6 @@
                                 Очков</a>
                         </li>-->
                     </ul>
-                    <a href="{{route('logout')}}"
-                        class="block py-2 px-4 text-sm font-semibold text-indigo-400 hover:bg-gray-100">Выйти</a>
                 </div>
             </div>
         </div>
