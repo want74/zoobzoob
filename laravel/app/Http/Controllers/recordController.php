@@ -13,6 +13,12 @@ class recordController extends Controller
         $data = array('doctor'=>'null','time'=>'null','name'=>Auth::user()->name,'email'=>Auth::user()->email,'phone'=>Auth::user()->phone,'date'=>Auth::user()->date,'status' => 'Ожидаем ответа от агента', 'userid' => $userId, 'datetime' => 'null','address' => 'null',"created_at" =>  date('Y-m-d H:i:s'),
             "updated_at" => date('Y-m-d H:i:s'));
         DB::table('records')->insert($data);
+        $apiToken = "5486037622:AAGSYuYZKEUVc_tvzvTEo9JBq2nTZqTFSFY";
+        $data = [
+            'chat_id' => '864640107',
+            'text' => Auth::user()->name.' '.Auth::user()->date.' +'.Auth::user()->phone
+        ];
+        $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data));
         return back();
     }
     public function deleteRecord(Request $request){

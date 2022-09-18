@@ -28,16 +28,20 @@ class ChallengeController extends Controller
         for ($i=0; $i < count($taskdata); $i++) { 
             $doneTask[$taskdata[$i]->taskId] = true;
         }
+        $doneChallenge = 0;
         for ($i=0; $i < count($challenges); $i++) {
-            $cnt[$i] = 0;
-            $dcnt[$i] = 0;
+            $cnt[$challenges[$i]->id] = 0;
+            $dcnt[$challenges[$i]->id] = 0;
             for ($j=0; $j < count($tasks); $j++) { 
                 if ($tasks[$j]->challengeId == $challenges[$i]->id) {
-                    $cnt[$i]++;
+                    $cnt[$challenges[$i]->id]++;
                     if ($doneTask[$tasks[$j]->id]) {
-                        $dcnt[$i]++;
+                        $dcnt[$challenges[$i]->id]++;
                     }
                 }
+            }
+            if ($cnt[$challenges[$i]->id] == $dcnt[$challenges[$i]->id]) {
+                $doneChallenge++;
             }
         }
         return view('challenges', [
@@ -46,6 +50,7 @@ class ChallengeController extends Controller
             'doneTask' => $doneTask,
             'cntChallenge' => $cnt,
             'cntDoneChallenge' => $dcnt,
+            'doneChallenge' => $doneChallenge,
         ]);
     }
 

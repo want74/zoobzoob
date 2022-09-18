@@ -1,7 +1,142 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+<div class="bg-[#EEF2FF] w-full flex overflow-y-auto">
+    <div class="mx-auto w-[98%] my-3">
+        <h1 class="text-3xl font-bold text-[#323855]">
+            Ваши записи и стоматологии
+        </h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-3 gap-3 w-full">
+                <!-- Записи -->
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] overflow-y-auto h-[350px]">
+                    <!-- Начало блоков записей -->
+                    @foreach($records as $recordid)
+                    @if($recordid->status == 'Ожидаем ответа от агента')
+                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                        <div class="w-full">
+                            <p class="font-semibold text-slate-500 text-xl mb-3">
+                                Ожидается
+                            </p>
+                            <p class="font-semibold text-slate-500 text-xl mb-3">
+                                Врач: Ожидается
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Время: Ожидается
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Адрес: Ожидается
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Причина: Осмотр у ортодонта
+                            </p>
+                        </div>
+                    </div>
+                    @else
+                    <div class="flex border-b-2 border-indigo-100 border-solid py-1">
+                        <div class="w-full">
+                            <p class="font-semibold text-slate-500 text-xl mb-3">
+                                {{$recordid->date}}
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Врач: {{$recordid->doctor}}
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Время: {{$recordid->time}}
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Адрес: {{$recordid->address}}
+                            </p>
+                            <p class="font-base text-slate-500 text-lg">
+                                Причина: Осмотр у ортодонта
+                            </p>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+                <!-- О нас -->
+                <div class="bg-white rounded-[12px] px-[34px] py-[27px] flex col-span-2 bg-[url('img/bgAbout.svg')] bg-cover">
+                    <div class="w-1/2">
+                        <h1 class="text-xl text-slate-500 font-semibold mb-5">
+                            ZoobZoob
+                        </h1>
+                        <p class="text-xl text-slate-500 font-semibold mb-5">
+                            предостовляет необходимую информацию про поддержание и
+                            улучшение состояния полости рта с помощью веб платформы.
+                        </p>
+                    </div>
+                    <div class="w-1/2 bg-[url('./img/para.svg')] h-full bg-no-repeat bg-right"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="text-3xl font-bold text-[#323855]">Наши гайды</h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-4 gap-3 w-full">
+                @foreach($results as $result)
+                    <a href="{{route('guidelink',['id'=>$result->id])}}">
+                        <div
+                            class="bg-white rounded-[12px] px-[34px] py-[27px] h-[250px] bg-[url('./img/bgGid.svg')] bg-[length:100%_120%]">
+                            <div class="flex h-full">
+                                <div
+                                    class="w-1/3 bg-[url('./img/chetka.svg')] h-full bg-no-repeat bg-contain bg-left">
+                                </div>
+                                <div class="w-full">
+                                    <p class="my-auto font-semibold text-slate-500 text-xl">
+                                        {{$result->name}}
+                                    </p>
+                                    <p class="my-auto font-base text-slate-500 text-lg mt-3">
+                                        {{$result->description}}
+                                    </p>
+                                    <div class="flex sticky top-full">
+                                        <img src="img/play-circle.svg" alt="play" class="ml-auto mt-auto" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                        </form>
+                    @endforeach
+                
+            </div>
+        </div>
+
+        <h1 class="text-3xl font-bold text-[#323855]">
+            Копи очки для бонусов, выполняя челленджи!
+        </h1>
+        <div class="flex my-3">
+            <div class="grid grid-cols-4 gap-3 w-full">
+                @foreach($challenges as $challenge)
+                <div class="bg-white rounded-[12px] h-[120px]">
+                    <div class="flex h-full">
+                        <div class="w-[120px] h-full flex bg-indigo-100 rounded-[12px]">
+                            <img src="{{asset('img/zalupa.svg')}}" class="h-1/2 w-1/2 m-auto">
+                        </div>
+
+                        <div class="w-auto box-border p-3 ml-auto">
+                            <p class="my-auto font-semibold text-slate-500 text-xl w-max">
+                                {{$challenge->name}}
+                            </p>
+                            
+                            <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
+                                {{$challenge->description}} 
+                            </p>
+                            
+                            <div class="flex sticky top-full">
+                                <!--<img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />-->
+                                <p class="text-indigo-500 font-semibold text-xl my-auto ml-auto">{{$cntDoneChallenge[$challenge->id]}}/{{$cntChallenge[$challenge->id]}}</p>
+                            </div>
+                        </div>                               
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -41,7 +176,7 @@
                         @endforeach
                         <div>
                             <h1>Записаться к врачу</h1>
-                            <form action="{{route('insertRecord')}}" method="GET">
+                            <form action="{{route('insertRecord')}}" method="POST">
                                 @csrf
                                 <button>Записаться к врачу</button>
                             </form>
@@ -190,4 +325,5 @@
             @endforeach
         });
     </script>
+-->
 @endsection

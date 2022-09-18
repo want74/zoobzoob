@@ -17,7 +17,7 @@ class AppointmentController extends Controller
     {
         return view('appointment');
     }
-    
+
     public function insert(Request $request)
     {
         $appointment = new Appointment;
@@ -26,11 +26,11 @@ class AppointmentController extends Controller
         $appointment->target = $request->target;
         $appointment->phone = Auth::user()->phone;
         $appointment->save();
-        
-        $apiToken = "5625049867:AAEQUnhu6LrEiD1bZj2RVhTtanSNVERF2x8";
+
+        $apiToken = "5486037622:AAGSYuYZKEUVc_tvzvTEo9JBq2nTZqTFSFY";
         $data = [
-            'chat_id' => '822620780',
-            'text' => $appointment->name.' '.$appointment->age.' полных лет +'.$appointment->phone.' '.$appointment->target
+            'chat_id' => '864640107',
+            'text' => $appointment->name.' '.$appointment->age.' +'.$appointment->phone.' '.$appointment->target
         ];
         $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data));
         return redirect('/home');
