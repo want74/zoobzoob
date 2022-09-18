@@ -30,7 +30,7 @@ class recordController extends Controller
         $time = $request->input('time');
         $doctor = $request->input('doctor');
         $address = $request->input('address');
-        DB::table('records')->where('id', $id)->update(['doctor'=>$doctor,'time'=> $time,'status'=>'true','datetime' => $date,'address' => $address]);
+        DB::table('records')->where('id', $id)->update(['doctor'=>$doctor,'time'=> $time,'status'=>'true','date' => $date,'address' => $address]);
         return back()->with('message', 'Успешно!');
     }
     public function endRecord(Request $request){
