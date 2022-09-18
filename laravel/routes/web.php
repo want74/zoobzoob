@@ -23,7 +23,6 @@ Route::view('/','welcome');
 Auth::routes();
 
 Route::name('/home')->group(function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('/home','home')->name('home')->middleware('auth');
     Route::get('/home', [\App\Http\Controllers\GuideController::class,'getData'])->middleware('auth');
 });
