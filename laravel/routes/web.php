@@ -18,7 +18,9 @@ use App\Http\Controllers\ChallengeController;
 |
 */
 
-Route::view('/','welcome');
+Route::get('/', function(){
+    return redirect('/home');
+});
 
 Auth::routes();
 
