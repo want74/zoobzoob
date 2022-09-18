@@ -32,6 +32,11 @@ class GuideController extends Controller
         $editorRecords = DB::select('select * from records');
         return view('home', compact(['results','userData','records','editorRecords']));
     }
+    public function getRecordData(){
+        $records = DB::select('select * from records where userid = '.Auth::user()->id);
+        $editorRecords = DB::select('select * from records');
+        return view('records', compact(['records','editorRecords']));
+    }
     public function editGuide(Request $request){
         $validateFields = $request->validate([
             'name' => 'required',

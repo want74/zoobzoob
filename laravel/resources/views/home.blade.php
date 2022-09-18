@@ -41,7 +41,7 @@
                         @endforeach
                         <div>
                             <h1>Записаться к врачу</h1>
-                            <form action="{{route('insertRecord')}}" method="POST">
+                            <form action="{{route('insertRecord')}}" method="GET">
                                 @csrf
                                 <button>Записаться к врачу</button>
                             </form>

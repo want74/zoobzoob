@@ -23,19 +23,29 @@ Route::view('/','welcome');
 Auth::routes();
 
 Route::name('/home')->group(function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::view('/home','home')->name('home')->middleware('auth');
     Route::get('/home', [\App\Http\Controllers\GuideController::class,'getData'])->middleware('auth');
 });
+Route::name('/guides')->group(function(){
+    Route::view('/guides', 'guides')->name('guides');
+    Route::get('/guides', [\App\Http\Controllers\guidesController::class,'getData']);
+});
+Route::name('/records')->group(function(){
+    Route::view('/records', 'records')->name('records');
+    Route::get('/records', [\App\Http\Controllers\GuideController::class,'getRecordData']);
+});
+Route::get('/guides/id', [\App\Http\Controllers\guidesController::class,'getDataGuide'])->name('guidelink');
+Route::view('/guide', 'guide')->name('guide');
 Route::post('/editUser', [\App\Http\Controllers\userController::class, 'editUser'])->name('editUser');
 Route::post('/insertguide', [\App\Http\Controllers\GuideController::class, 'insertGuide'])->name('insertGuide');
 Route::get('/editGuide', [\App\Http\Controllers\GuideController::class, 'editGuide'])->name('guideEdit');
 Route::get('/deleteGuide', [\App\Http\Controllers\GuideController::class, 'deleteGuide'])->name('deleteGuide');
-Route::post('/insertRecord', [\App\Http\Controllers\recordController::class, 'insertRecord'])->name('insertRecord');
+Route::get('/insertRecord', [\App\Http\Controllers\recordController::class, 'insertRecord'])->name('insertRecord');
 Route::post('/editRecord', [\App\Http\Controllers\recordController::class, 'editRecord'])->name('editRecord');
 Route::get('/deleteRecord', [\App\Http\Controllers\recordController::class, 'deleteRecord'])->name('deleteRecord');
 Route::post('/endRecord', [\App\Http\Controllers\recordController::class, 'endRecord'])->name('endRecord');
 Route::controller(AdvancedAuthController::class)->group(function(){
+    Route::view('/captcha','captcha')->name('captcha');
     Route::get('/advanced', 'main');
     Route::post('/advanced/problem', 'problem');
     Route::get('/advanced/problem', 'problem');

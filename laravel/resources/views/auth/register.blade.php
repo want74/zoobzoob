@@ -1,102 +1,72 @@
-<a href="{{route('login')}}">Назад</a>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<!DOCTYPE html>
+<html>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+<body class="bg-indigo-50 bg-cover bg-no-repeat">
+<div class="flex">
+    <div class="bg-[url('../img/kostReg.svg')] w-1/3 h-screen flex"></div>
+    <div class="bg-[url('../img/bgAuth.svg')] w-2/3 h-screen">
+        <div class="flex h-full w-full">
+            <div class="m-auto">
+                <img src="img/logo.svg" class="mx-auto" />
+                <p class="font-bold text-xl mt-[40px]">Регистрация аккаунта</p>
+                <p class="font-semibold text-sm">
+                    Для успешной регистрации заполните следуещее...
+                </p>
+                <hr class="my-3 h-px bg-[#9FA8DA] border-0 w-[400px]" />
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <form class="z-20 mt-5" method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">Номер
+                        телефона</label>
+                    <input type="tel" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="+79142917801" name="phone" required />
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">Почта</label>
+                    <input type="email" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="aqua@mail.ru" name="email" required />
 
-                        <div class="row mb-3">
-                            <label for="date" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">ФИО</label>
+                    <input type="text" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="Иванов Иван Иванович" name="name" required />
 
-                            <div class="col-md-6">
-                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">Дата рождения</label>
+                    <input type="date" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="aqua@mail.ru" name="date" required />
 
-                                @error('date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 mt-2">Пароль</label>
+                    <input type="password" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="Password" name="password" required />
 
-                        <div class="row mb-3">
-                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
+                    <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 mt-2">Повторите
+                        пароль</label>
+                    <input type="password" id="first_name"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[400px] p-2.5"
+                           placeholder="Password" name="password_confirmation" required />
 
-                            <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> 
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <button type="submit"
+                            class="text-white bg-[#3949AB] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none mt-[50px] w-[400px]">
+                        Войти
+                    </button>
+                </form>
+                <div class="flex">
+                    <p class="font-thin text-center my-auto">Есть аккаунт?</p>
+                    <a href="{{route('login')}}" class="decoration-0 ml-2 text-[#3949AB] my-auto">Войти</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</body>
+
+</html>

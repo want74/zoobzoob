@@ -16,7 +16,7 @@ class AdvancedAuthController extends Controller
             ->where('userId', Auth::user()->id)
             ->get();
         $problems = [];
-        for ($i=0; $i < count($data); $i++) { 
+        for ($i=0; $i < count($data); $i++) {
             $problems[$i] = json_decode($data[$i]->problem);
         }
         return view('advanced/advanced', [
@@ -31,7 +31,7 @@ class AdvancedAuthController extends Controller
             'num' => $request->num,
         ]);
     }
-    
+
     public function problem_insert(Request $request){
         $valid = $request->validate([
             'problem' => 'required',
@@ -52,10 +52,9 @@ class AdvancedAuthController extends Controller
         ]);
         $advanced = new Advanced();
         $advanced->capId = $request->capId;
-        $advanced->target = $request->target;
+        $advanced->target = $request->input('target');
         $advanced->userId = Auth::user()->id;
         $advanced->save();
-
         DB::table('users')
             ->where('id', Auth::user()->id)
             ->update([
