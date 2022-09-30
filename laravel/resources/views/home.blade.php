@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        
+
         <h1 class="text-3xl font-bold text-[#323855]">Наши гайды</h1>
         <div class="flex my-3">
             <div class="grid grid-cols-4 gap-3 w-full">
@@ -98,7 +98,7 @@
                     </a>
                         </form>
                     @endforeach
-                
+
             </div>
         </div>
 
@@ -118,16 +118,16 @@
                             <p class="my-auto font-semibold text-slate-500 text-xl w-max">
                                 {{$challenge->name}}
                             </p>
-                            
+
                             <p class="my-auto font-base text-slate-500 text-lg mt-3 w-max">
-                                {{$challenge->description}} 
+                                {{$challenge->description}}
                             </p>
-                            
+
                             <div class="flex sticky top-full">
                                 <!--<img src="img/yellow star.svg" class="ml-auto my-auto w-[40px] h-[40px]" />-->
                                 <p class="text-indigo-500 font-semibold text-xl my-auto ml-auto">{{$cntDoneChallenge[$challenge->id]}}/{{$cntChallenge[$challenge->id]}}</p>
                             </div>
-                        </div>                               
+                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -135,7 +135,7 @@
         </div>
     </div>
 </div>
-
+zxczxcxzcxczxcxczxc
     <!--<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
